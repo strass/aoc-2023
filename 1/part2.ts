@@ -3,7 +3,7 @@ import input from './input'
 const lines = input.split('\n')
 const answer = lines.reduce((acc, line) => {
     const numbers = [...line.matchAll(/\d|(?=(one|two|three|four|five|six|seven|eight|nine))/g)].map(match => {
-        const m = match[0] || match[1]
+        const m = match[0] || match[1] // I don't use lookaheads very often so I'm not sure if there's a better way to do it
         switch (m) {
             case 'one':
                 return 1
