@@ -29,15 +29,14 @@ const nextValues = differences.map((diffs) => {
   let first = (diffs.at(-1) ?? []).at(0);
   let last = (diffs.at(-1) ?? []).at(-1);
   for (let i = diffs.length; i > 0; i--) {
+    first = (diffs[i - 1]?.at(0) ?? 0) - (diffs[i]?.at(0) ?? 0);
+    diffs[i - 1] = [first, ...diffs[i - 1]];
 
-    first = (diffs[i - 1]?.at(0) ?? 0)- (diffs[i]?.at(0) ?? 0);
-    diffs[i - 1] = [first, ...diffs[i - 1]]
- 
     last = (diffs[i]?.at(-1) ?? 0) + (diffs[i - 1]?.at(-1) ?? 0);
     diffs[i - 1].push(last);
   }
 
-  console.log(diffs)
+  console.log(diffs);
   return first;
 });
 
