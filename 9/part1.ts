@@ -36,6 +36,4 @@ const nextValues = differences.map((diffs) => {
   return last;
 });
 
-console.log(nextValues);
-
 console.log(nextValues.reduce((a, b) => (a ?? 0) + (b ?? 0), 0));
